@@ -7,6 +7,10 @@ scratch, in Python.
 > contract are in place.  The consensus core is not yet implemented.  See
 > [`docs/roadmap.md`](docs/roadmap.md) for the full build plan.
 
+<p align="center">
+  <img src="docs/architecture.svg" alt="Keel architecture" width="680">
+</p>
+
 ## What this will be
 
 Keel is a fixed-membership replicated key-value store implementing:
