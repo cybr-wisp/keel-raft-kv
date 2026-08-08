@@ -1,0 +1,57 @@
+# Default cluster configuration.
+# Keel uses fixed static membership: this file is read once at startup.
+
+[cluster]
+# Node IDs and their addresses.  Must be 3 or 5 entries.
+# Ports are: Raft RPC (internal), HTTP gateway (client-facing).
+
+[[cluster.nodes]]
+id = 1
+raft_host = "127.0.0.1"
+raft_port = 5001
+http_port = 8001
+
+[[cluster.nodes]]
+id = 2
+raft_host = "127.0.0.1"
+raft_port = 5002
+http_port = 8002
+
+[[cluster.nodes]]
+id = 3
+raft_host = "127.0.0.1"
+raft_port = 5003
+http_port = 8003
+
+[[cluster.nodes]]
+id = 4
+raft_host = "127.0.0.1"
+raft_port = 5004
+http_port = 8004
+
+[[cluster.nodes]]
+id = 5
+raft_host = "127.0.0.1"
+raft_port = 5005
+http_port = 8005
+
+[raft]
+# Election timeout range in milliseconds.  Each node picks a random
+# value in [min, max] to avoid synchronized elections.
+election_timeout_min_ms = 150
+election_timeout_max_ms = 300
+
+# Heartbeat interval in milliseconds.  Must be much less than
+# election_timeout_min_ms.
+heartbeat_interval_ms = 50
+
+# Maximum number of log entries per AppendEntries RPC.
+max_entries_per_rpc = 100
+
+[snapshot]
+# Take a snapshot after this many committed entries since the last snapshot.
+entries_since_last = 1000
+
+[persistence]
+# SQLite database path template.  {node_id} is replaced at startup.
+db_path = "data/node-{node_id}.db"
