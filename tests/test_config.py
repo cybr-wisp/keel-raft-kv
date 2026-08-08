@@ -4,18 +4,18 @@ from __future__ import annotations
 
 import pytest
 
-import keel
-from keel.config import ClusterConfig, NodeId
+import raft_kv
+from raft_kv.config import ClusterConfig, NodeId
 
 
 class TestPackageImport:
     """Verify that the package is importable and exposes a version."""
 
     def test_version_exists(self) -> None:
-        assert hasattr(keel, "__version__")
+        assert hasattr(raft_kv, "__version__")
 
     def test_version_is_string(self) -> None:
-        assert isinstance(keel.__version__, str)
+        assert isinstance(raft_kv.__version__, str)
 
 
 class TestClusterConfig:
